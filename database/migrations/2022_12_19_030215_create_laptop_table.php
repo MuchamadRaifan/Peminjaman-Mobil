@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('laptop', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_mobil');
+            $table->string('nama_peminjam');
+            $table->string('no_mobil');
+            $table->string('image')->nullable();
+            $table->timestamp('tanggal_peminjaman');
+            $table->dateTime('tanggal_di_kembalikan')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**p.
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('laptop');
+    }
+};
